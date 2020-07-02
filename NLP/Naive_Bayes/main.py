@@ -74,6 +74,6 @@ for i in range(len(t_voc[0])):
 print(lambs)
 #if the lambda is greater than 0, it's pos, if <0, is neg, if about 0, is neutral
 for i in range(len(lambs)):
-    print(t_voc[0][i], lambs[i], "pos" if lambs[i]>0 else "neg")
+    print(t_voc[0][i], lambs[i], "neutral" if str(lambs[i])[0:3]=="0.0" else "pos" if lambs[i]>0 else "neg")
 
 #Woo! We have successfully determined the sentiment of different words in a small sample set!
