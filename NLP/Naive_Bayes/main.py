@@ -48,9 +48,32 @@ for obj in words:
         v_neg[obj] = 0
 
 
-complete_voc = [
+t_voc = [
     words, #vocabulary
     [v_pos[i] for i in words], #pos freqs
     [v_neg[i] for i in words] #neg freqs
 ]
-print(complete_voc)
+
+#don't think dict is actually necessary but keeping just in case
+"""#gonna turn it into a dictionary for ez access
+
+#no clue if this will work, lets try it
+d_voc = {
+    t_voc[0][j] : [t_voc[1][j], t_voc[2][j]] for j in range(len(t_voc[0]))
+}
+#WAHOO!! THIS ACTUALLY WORKS"""
+
+p_pos = datman.getFreq(t_voc[1])
+p_neg = datman.getFreq(t_voc[2])
+
+#lambda time: for each word, log(pos / neg)
+lambs = []
+for i in range(len(t_voc[0])):
+    lambs.append(np.log(p_pos[i] / p_neg[i]))
+
+print(lambs)
+#if the lambda is greater than 0, it's pos, if <0, is neg, if about 0, is neutral
+for i in range(len(lambs)):
+    print(t_voc[0][i], lambs[i], "pos" if lambs[i]>0 else "neg")
+
+#Woo! We have successfully determined the sentiment of different words in a small sample set!
