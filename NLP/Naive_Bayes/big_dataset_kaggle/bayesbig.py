@@ -109,10 +109,16 @@ class nlp():
 
     def analyze(self):
         #method to do the full analysis process
+        print("Beginning Data Analysis. . . ")
+        print("Pre-processing text. . . ")
         self.preprocess()
+        print("Text successfully preprocessed. Computing Frequencies. . . ")
         self.getfreqs()
+        print("Frequencies computed. Getting probabilities. . . ")
         self.probabilities()
+        print("Lambda time. . . ")
         self.lambdas()
+        print("Complete!")
     
 tester = nlp()
 tester.analyze()
