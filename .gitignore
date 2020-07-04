@@ -1,2 +1,3 @@
 NLP\Naive_Bayes\__pycache__
 NLP\Naive_Bayes\big_dataset_kaggle\__pycache__
+*.pyc
